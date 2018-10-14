@@ -2,7 +2,7 @@
 
 set -x
 
-. ~eugeneai/ip.sh
+. /etc/wireguard/ip.conf
 
 if [[ $EUID -ne 0 ]]; then
     echo "Rerun as root" 1>&2
