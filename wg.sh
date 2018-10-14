@@ -15,10 +15,12 @@ set -x
 ip link del dev wg0 || true
 
 ip link add dev wg0 type wireguard
+ip link set up dev wg0
+ip addr flush dev wg0
 ip address add dev wg0 $ME peer $OTHER
 ip -6 address add dev wg0 $ME6 peer $OTHER6
+ip -6 address add dev wg0 $MEU6 peer $OTHERU6
 wg setconf wg0 /etc/wireguard/wg.conf
-ip link set up dev wg0
 
 ip tunnel del gre_g || true
 ip tunnel add gre_g mode gre local $MEGL remote $OTHERGL ttl 255
