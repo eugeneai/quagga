@@ -16,6 +16,7 @@ ip link del dev wg0 || true
 
 ip link add dev wg0 type wireguard
 ip address add dev wg0 $ME peer $OTHER
+ip -6 address add dev wg0 $ME6 peer $OTHER6
 wg setconf wg0 /etc/wireguard/wg.conf
 ip link set up dev wg0
 
