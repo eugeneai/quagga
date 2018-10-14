@@ -19,7 +19,7 @@ ip link set up dev wg0
 ip addr flush dev wg0
 ip address add dev wg0 $ME peer $OTHER
 ip -6 address add dev wg0 $ME6 peer $OTHER6
-ip -6 address add dev wg0 $MEU6 peer $OTHERU6
+# ip -6 address add dev wg0 $MEU6 peer $OTHERU6
 wg setconf wg0 /etc/wireguard/wg.conf
 
 ip tunnel del gre_g || true
